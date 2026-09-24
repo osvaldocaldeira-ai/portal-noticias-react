@@ -5,7 +5,7 @@ return(
         Desenvolvido por: 
     </p>
     <a href="#">
-        Isabelle Sidreira
+        Osvaldo Caldeira
     </a>
 </footer>
 );
