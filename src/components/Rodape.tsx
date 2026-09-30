@@ -1,12 +1,14 @@
+import { Link } from "react-router";
+
 function Rodape(){
 return(
 <footer className="rodape">
     <p>
         Desenvolvido por: 
     </p>
-    <a href="#">
-        Osvaldo Caldeira
-    </a>
+    <Link to="/sobre">
+    Osvaldo Caldeira
+    </Link>
 </footer>
 );
 }

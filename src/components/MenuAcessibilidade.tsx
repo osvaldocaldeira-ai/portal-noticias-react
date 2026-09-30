@@ -23,7 +23,7 @@ Ir para o conteúdo principal
 
 <button id="btnAcessibilidade" aria-expanded={menuAberto} onClick={abrirMenu}>
 <img src="./Símbolo acessibilidade.png" width="25" alt="Ícone de acessibilidade com uma figura humana estilizada formada por círculos azuis e linhas pretas."/>
-</button>ttt
+</button>
 <div id="menuAcessibilidade" hidden={!menuAberto}>
 <button id="btnAumentarFonte" aria-label="Aumentar fonte" onClick={aumentarFonte}>
 Aumentar Fonte
