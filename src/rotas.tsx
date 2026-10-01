@@ -3,6 +3,7 @@ import App from "./App";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Sobre from "./pages/Sobre";
+import Adm from "./pages/Adm";
 
 const rotas = createBrowserRouter(
 [
@@ -21,6 +22,10 @@ Component: Login
             {
                 path: "/sobre",
                 Component: Sobre
+            },
+            {
+                path: "/adm",
+                Component: Adm
             }
         ]
     }
