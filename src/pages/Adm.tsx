@@ -1,25 +1,22 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router";
+import MenuAdm from "../components/MenuAdm";
 
 function Adm(){
 
 const navigate= useNavigate();
 useEffect(()=>{
-const usuarioLogado= localStorage.getItem("usuário logado");
-if(usuarioLogado!="sim"){
+const usuarioLogado= localStorage.getItem("usuarioLogado");
+if(usuarioLogado!="Sim"){
 navigate("/login")
 }
 }, []);
 
 return(
 <>
-<h1 className="destaque">
-    Área administrativa
-</h1>
 <main id="conteudoPrincipal">
-<p>
-    Em breve será exibido o conteúdo da área administrativa
-</p>
+<MenuAdm/>
+    
 </main>
 
 

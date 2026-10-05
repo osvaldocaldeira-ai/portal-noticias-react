@@ -23,7 +23,6 @@ return(
             </p>
 </nav>
 );
-
 }
 
 export default Menu
