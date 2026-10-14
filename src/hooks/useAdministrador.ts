@@ -22,6 +22,17 @@ return listaAdministradores;
     
 }
 
+function excluirAdministrador(email: string){
+const listaAdministradores= buscarAdministradores()
+const novaLista = listaAdministradores.filter(
+   (administrador: any)=>{
+administrador.email!=email
+   } 
+);
+localStorage.setItem("listraAdministradores", JSON.stringify(novaLista))
+
+}
+
     return(
 {
     nome,
@@ -33,7 +44,8 @@ return listaAdministradores;
     mensagem,
     setMensagem,
     cadastrarAdministrador,
-    buscarAdministradores
+    buscarAdministradores,
+    excluirAdministrador
 }
     );
 
