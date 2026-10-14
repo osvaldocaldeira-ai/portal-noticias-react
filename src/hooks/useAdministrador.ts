@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 
 function useAdministrador(){
     const [nome, setNome]= useState("");
@@ -6,7 +6,7 @@ function useAdministrador(){
             const [senha, setSenha]= useState("");
                 const [mensagem, setMensagem]= useState("");
          
-function cadastrarAdministrador(evento: SubmitEvent){
+function cadastrarAdministrador(evento: React.SubmitEvent<HTMLFormElement>){
 evento.preventDefault();
 const administrador= {nome,email, senha}
 
@@ -15,6 +15,13 @@ listaAdministradores.push(administrador);
 localStorage.setItem("ListaAdministradores", JSON.stringify(listaAdministradores));
 setMensagem("Cadastro realizado com sucesso")
 }               
+
+function buscarAdministradores(){
+const listaAdministradores= JSON.parse(localStorage.getItem("listaAdministradores") || "[]");
+return listaAdministradores;
+    
+}
+
     return(
 {
     nome,
@@ -25,9 +32,9 @@ setMensagem("Cadastro realizado com sucesso")
     setSenha,
     mensagem,
     setMensagem,
-    cadastrarAdministrador
+    cadastrarAdministrador,
+    buscarAdministradores
 }
-
     );
 
 

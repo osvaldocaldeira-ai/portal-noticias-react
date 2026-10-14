@@ -10,7 +10,10 @@ return(
 <nav className="menu">
 <p>
     <Link className="botao-menu" to="/telaCadastroAdm">
-  Cadastro de Administrador  
+  Cadastro de Administradores  
+    </Link>
+    <Link className="botao-menu" to="/telaListaAdm">
+    Lista de Administradores
     </Link>
 </p>
 </nav>
