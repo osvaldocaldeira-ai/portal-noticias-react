@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import type Administrador from "../interfaces/administrador";
 
 function useAdministrador(){
     const [nome, setNome]= useState("");
@@ -10,13 +11,24 @@ function cadastrarAdministrador(evento: React.SubmitEvent<HTMLFormElement>){
 evento.preventDefault();
 const administrador= {nome,email, senha}
 
-const listaAdministradores= JSON.parse(localStorage.getItem("ListaAdministradores") || "[]");
+const listaAdministradores= JSON.parse(localStorage.getItem("listaAdministradores") || "[]");
 listaAdministradores.push(administrador);
-localStorage.setItem("ListaAdministradores", JSON.stringify(listaAdministradores));
+localStorage.setItem("listaAdministradores", JSON.stringify(listaAdministradores));
 setMensagem("Cadastro realizado com sucesso")
+setTimeout(() => {
+    limparCampos()
+}, 1000);
 }               
 
-function buscarAdministradores(){
+function limparCampos(){
+    setNome("");
+    setEmail("");
+    setSenha("");
+    setMensagem("")
+}
+
+
+function buscarAdministradores(): Administrador[]{
 const listaAdministradores= JSON.parse(localStorage.getItem("listaAdministradores") || "[]");
 return listaAdministradores;
     
@@ -25,11 +37,11 @@ return listaAdministradores;
 function excluirAdministrador(email: string){
 const listaAdministradores= buscarAdministradores()
 const novaLista = listaAdministradores.filter(
-   (administrador: any)=>{
+   (administrador)=>
 administrador.email!=email
-   } 
+    
 );
-localStorage.setItem("listraAdministradores", JSON.stringify(novaLista))
+localStorage.setItem("listaAdministradores", JSON.stringify(novaLista))
 
 }
 
@@ -48,7 +60,5 @@ localStorage.setItem("listraAdministradores", JSON.stringify(novaLista))
     excluirAdministrador
 }
     );
-
-
 }
 export default useAdministrador
