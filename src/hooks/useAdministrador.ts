@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import type Administrador from "../interfaces/Administrador";
-import { Navigate, useNavigate } from "react-router";
+import { useNavigate } from "react-router";
 
 function useAdministrador(){
     const [nome, setNome]= useState("");
@@ -48,14 +48,14 @@ localStorage.setItem("listaAdministradores", JSON.stringify(novaLista))
 
 function alterarAdministrador(
     evento: React.SubmitEvent<HTMLFormElement>,
-email: string){
+emailOriginal: string){
 evento.preventDefault()
 
 const listaAdministradores= buscarAdministradores()
 
 const novaLista= listaAdministradores.map(
     (administrador) =>{
-if(administrador.email==email){
+if(administrador.email==emailOriginal){
 return{
     nome,
     email,
